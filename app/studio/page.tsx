@@ -21,7 +21,7 @@ export default function StudioPage() {
         lede="Aakaar means form. Shape. The moment something formless is given structure. It is a fair description of the job, and it is the reason the studio exists in the shape it does."
       />
 
-      <section className="py-16 md:py-24">
+      <section className="section-tight">
         <StudioBody />
       </section>
 
@@ -38,7 +38,7 @@ export default function StudioPage() {
         </div>
       </section>
 
-      <section className="pb-20 md:pb-28">
+      <section className="pb-24 md:pb-36">
         <IndiaBody />
       </section>
 

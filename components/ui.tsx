@@ -10,11 +10,15 @@ import type { ReactNode } from "react";
 
 type RevealKind = "rise" | "wipe" | "mask" | "scale" | "settle";
 
+/* One expressive easing, used at different durations. A long, soft tail is
+   most of what separates a considered reveal from a default one. */
+const EASE = [0.16, 1, 0.3, 1] as const;
+
 const kinds: Record<RevealKind, Variants> = {
   /* gentle upward settle — used for body copy only */
   rise: {
-    hidden: { opacity: 0, y: 14 },
-    shown: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+    hidden: { opacity: 0, y: 22 },
+    shown: { opacity: 1, y: 0, transition: { duration: 0.95, ease: EASE } },
   },
   /* a drafting wipe, left to right — as if being drawn onto the page */
   wipe: {
@@ -22,27 +26,27 @@ const kinds: Record<RevealKind, Variants> = {
     shown: {
       opacity: 1,
       clipPath: "inset(0 0% 0 0)",
-      transition: { duration: 0.85, ease: [0.65, 0, 0.35, 1] },
+      transition: { duration: 1.15, ease: [0.65, 0, 0.35, 1] },
     },
   },
   /* headline rises out from behind its own baseline */
   mask: {
-    hidden: { y: "108%" },
-    shown: { y: "0%", transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] } },
+    hidden: { y: "110%" },
+    shown: { y: "0%", transition: { duration: 1.15, ease: EASE } },
   },
   /* for diagrams and framed objects */
   scale: {
-    hidden: { opacity: 0, scale: 0.965 },
-    shown: { opacity: 1, scale: 1, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
+    hidden: { opacity: 0, scale: 0.955, y: 14 },
+    shown: { opacity: 1, scale: 1, y: 0, transition: { duration: 1.1, ease: EASE } },
   },
   /* drops in and comes to rest, like a card laid on a table */
   settle: {
-    hidden: { opacity: 0, y: -10, rotate: -0.4 },
+    hidden: { opacity: 0, y: -14, rotate: -0.5 },
     shown: {
       opacity: 1,
       y: 0,
       rotate: 0,
-      transition: { duration: 0.55, ease: [0.34, 1.3, 0.64, 1] },
+      transition: { duration: 0.85, ease: [0.34, 1.2, 0.64, 1] },
     },
   },
 };
@@ -149,7 +153,7 @@ const maskContainer = (step: number): Variants => ({
 export function MaskLines({
   lines,
   className,
-  delayStep = 0.08,
+  delayStep = 0.09,
 }: {
   lines: ReactNode[];
   className?: string;
@@ -198,7 +202,7 @@ export function DrawnRule({ className = "" }: { className?: string }) {
       initial={{ scaleX: 0 }}
       whileInView={{ scaleX: 1 }}
       viewport={{ once: true, amount: 0.9 }}
-      transition={{ duration: 0.9, ease: [0.65, 0, 0.35, 1] }}
+      transition={{ duration: 1.2, ease: [0.65, 0, 0.35, 1] }}
     />
   );
 }

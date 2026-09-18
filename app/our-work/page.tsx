@@ -19,7 +19,7 @@ export default function OurWorkPage() {
         lede="We are a new studio, so what follows are concept systems we built ourselves rather than client case studies. The first one is live on this page. Answer it the way a customer would."
       />
 
-      <section className="py-16 md:py-24">
+      <section className="section-tight">
         <ProofBody />
       </section>
 

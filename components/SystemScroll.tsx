@@ -125,25 +125,28 @@ const WIDE: Layout = {
 };
 
 const NARROW: Layout = {
-  viewBox: "0 0 380 600",
+  /* 380x500, not 380x600: the old canvas carried 72px of dead space at the
+     bottom, and `meet` fits a portrait viewBox to the slot's HEIGHT — so the
+     dead space came straight off the scale and shrank the whole diagram. */
+  viewBox: "0 0 380 500",
   axis: "y",
-  font: 13,
-  subFont: 9,
+  font: 15,
+  subFont: 11,
   pos: {
-    s1: { cx: 52, cy: 22, w: 88, h: 26 },
-    s2: { cx: 148, cy: 22, w: 88, h: 26 },
-    s3: { cx: 244, cy: 22, w: 88, h: 26 },
-    s4: { cx: 332, cy: 22, w: 80, h: 26 },
-    intake: { cx: 190, cy: 108, w: 152, h: 44 },
-    qualify: { cx: 190, cy: 208, w: 152, h: 44 },
-    crm: { cx: 100, cy: 312, w: 140, h: 44 },
-    reply: { cx: 258, cy: 312, w: 140, h: 44 },
-    booking: { cx: 100, cy: 400, w: 140, h: 44 },
-    followup: { cx: 258, cy: 400, w: 140, h: 44 },
-    measure: { cx: 190, cy: 506, w: 152, h: 44 },
+    s1: { cx: 52, cy: 18, w: 88, h: 26 },
+    s2: { cx: 148, cy: 18, w: 88, h: 26 },
+    s3: { cx: 244, cy: 18, w: 88, h: 26 },
+    s4: { cx: 332, cy: 18, w: 80, h: 26 },
+    intake: { cx: 190, cy: 94, w: 152, h: 42 },
+    qualify: { cx: 190, cy: 180, w: 152, h: 42 },
+    crm: { cx: 100, cy: 268, w: 140, h: 42 },
+    reply: { cx: 258, cy: 268, w: 140, h: 42 },
+    booking: { cx: 100, cy: 348, w: 140, h: 42 },
+    followup: { cx: 258, cy: 348, w: 140, h: 42 },
+    measure: { cx: 190, cy: 436, w: 152, h: 42 },
   },
   loopPath:
-    "M 266 506 C 358 506, 368 470, 368 380 C 368 250, 340 208, 266 208",
+    "M 266 436 C 356 436, 366 404, 366 320 C 366 216, 338 180, 266 180",
 };
 
 function edgePath(a: Pt, b: Pt, axis: "x" | "y") {
@@ -161,10 +164,12 @@ function edgePath(a: Pt, b: Pt, axis: "x" | "y") {
 
 /* ---------------- scroll windows ---------------- */
 
+/* The build finishes at 0.90, leaving the last tenth of the scroll as a
+   hold on the completed system rather than racing the section's release. */
 const ACTS: Array<[number, number]> = [
-  [0.05, 0.31],
-  [0.37, 0.64],
-  [0.70, 0.97],
+  [0.04, 0.28],
+  [0.33, 0.58],
+  [0.63, 0.90],
 ];
 
 /** Each item gets its own slice of its act, so the system builds piece by piece. */
@@ -278,12 +283,26 @@ function DiagramEdge({
 
   return (
     <g>
+      {/* The feedback loop reads as a dashed guide. The dashes live on a
+          separate static path: Motion implements `pathLength` by writing
+          stroke-dasharray itself, so setting one here would fight it. */}
+      {def.loop && (
+        <motion.path
+          d={d}
+          fill="none"
+          stroke={stroke}
+          strokeWidth={1}
+          strokeDasharray="5 4"
+          vectorEffect="non-scaling-stroke"
+          style={{ opacity }}
+          opacity={0.32}
+        />
+      )}
       <motion.path
         d={d}
         fill="none"
         stroke={stroke}
         strokeWidth={def.loop ? 1 : 1.25}
-        strokeDasharray={def.loop ? "5 4" : undefined}
         strokeLinecap="round"
         vectorEffect="non-scaling-stroke"
         style={{ pathLength: t, opacity }}
@@ -314,7 +333,7 @@ export function SystemScroll() {
   const [built, setBuilt] = useState(false);
 
   useEffect(() => {
-    const mq = window.matchMedia("(min-width: 900px)");
+    const mq = window.matchMedia("(min-width: 768px)");
     const apply = () => setLayout(mq.matches ? WIDE : NARROW);
     apply();
     mq.addEventListener("change", apply);
@@ -330,7 +349,7 @@ export function SystemScroll() {
     const next = p < ACTS[1][0] ? 0 : p < ACTS[2][0] ? 1 : 2;
     setAct((cur) => (cur === next ? cur : next));
     setBuilt((cur) => {
-      const now = p > 0.9;
+      const now = p > 0.88;
       return cur === now ? cur : now;
     });
   });
@@ -338,16 +357,17 @@ export function SystemScroll() {
   if (reduced) return <StaticSystem layout={WIDE} />;
 
   return (
+    <>
     <section
       id="system"
       ref={sectionRef}
-      className="relative h-[340vh] scroll-mt-0 md:h-[420vh]"
+      className="relative h-[340svh] scroll-mt-0 md:h-[420svh]"
       aria-labelledby="system-heading"
     >
       <div className="sticky top-0 flex h-[100svh] flex-col overflow-hidden">
-        <div className="shell flex w-full flex-1 flex-col pt-20 pb-6 md:pt-24 md:pb-10">
+        <div className="shell flex w-full flex-1 flex-col pt-[4.5rem] pb-3 md:pt-24 md:pb-10">
           <div className="flex items-center justify-between gap-6">
-            <SectionMark index="02" label="the system" />
+            <SectionMark index="03" label="the system" />
             <ActProgress progress={scrollYProgress} act={act} />
           </div>
 
@@ -357,7 +377,7 @@ export function SystemScroll() {
 
           {/* items-stretch, not center: the diagram column has to fill the
               pinned height or the SVG collapses to a fraction of the space. */}
-          <div className="mt-5 grid flex-1 grid-rows-[auto_minmax(0,1fr)] gap-4 md:mt-8 md:grid-cols-[minmax(0,0.78fr)_minmax(0,1.7fr)] md:grid-rows-1 md:items-stretch md:gap-10">
+          <div className="mt-4 grid flex-1 grid-rows-[auto_minmax(11rem,1fr)] gap-3 md:mt-8 md:grid-cols-[minmax(0,0.78fr)_minmax(0,1.7fr)] md:grid-rows-1 md:gap-10 md:items-stretch">
             <StageCopy act={act} />
 
             <div className="relative min-h-0 w-full">
@@ -396,6 +416,26 @@ export function SystemScroll() {
         </div>
       </div>
     </section>
+
+      {/* Phones get the full narrative here rather than inside the pinned
+          frame, where every line of it came straight out of the diagram's
+          height budget. */}
+      <section className="section-tight md:hidden">
+        <div className="shell space-y-10">
+          {stages.map((s) => (
+            <div key={s.id} className="border-t border-line pt-6">
+              <div className="flex items-baseline gap-3">
+                <span className="annot tnum text-blue">{s.index}</span>
+                <h3 className="font-display text-2xl leading-none text-paper">{s.title}</h3>
+              </div>
+              <p className="mt-3 text-[1.0625rem] text-paper">{s.claim}</p>
+              <p className="mt-2 text-paper-dim">{s.body}</p>
+              <p className="annot mt-4 border-l border-jade pl-3 text-jade">{s.proof}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    </>
   );
 }
 
@@ -429,9 +469,8 @@ function ActProgress({
 }
 
 function StageCopy({ act }: { act: number }) {
-  const stage = stages[act];
   return (
-    <div className="relative min-h-[8.5rem] md:min-h-[19rem] md:self-center">
+    <div className="relative min-h-0 md:min-h-[19rem] md:self-center">
       {stages.map((s, i) => (
         <motion.div
           key={s.id}
@@ -439,12 +478,18 @@ function StageCopy({ act }: { act: number }) {
           initial={false}
           animate={{
             opacity: i === act ? 1 : 0,
-            y: i === act ? 0 : i < act ? -14 : 14,
+            y: i === act ? 0 : i < act ? -18 : 18,
+            /* Hide outright once faded. Leaving a 0-opacity copy stacked on
+               the live one is what produced the ghosted double headline. */
+            transitionEnd: { visibility: i === act ? "visible" : "hidden" },
           }}
-          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          transition={{
+            duration: i === act ? 0.55 : 0.3,
+            delay: i === act ? 0.12 : 0,
+            ease: [0.16, 1, 0.3, 1],
+          }}
           style={{ pointerEvents: i === act ? "auto" : "none" }}
           aria-hidden={i !== act}
-          hidden={i !== act ? undefined : undefined}
         >
           <div className={i === act ? "block" : "hidden md:block"}>
             <div className="flex items-baseline gap-3">
@@ -461,8 +506,9 @@ function StageCopy({ act }: { act: number }) {
           </div>
         </motion.div>
       ))}
-      {/* The full narrative stays in the document for assistive tech and
-          for anyone who does not scroll through the pinned sequence. */}
+      {/* The full narrative stays in the document for assistive tech and for
+          anyone who does not scroll through the pinned sequence. On phones it
+          is also rendered visibly below the section — see StageNotes. */}
       <div className="sr-only">
         {stages.map((s) => (
           <div key={s.id}>
@@ -473,7 +519,6 @@ function StageCopy({ act }: { act: number }) {
           </div>
         ))}
       </div>
-      <p className="mt-3 text-sm text-paper-dim md:hidden">{stage.body}</p>
     </div>
   );
 }

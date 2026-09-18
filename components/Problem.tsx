@@ -12,11 +12,11 @@ export function Problem() {
   const reduced = useReducedMotion();
 
   return (
-    <section id="problem" className="relative scroll-mt-24 py-28 md:py-40">
+    <section id="problem" className="section relative scroll-mt-24">
       <div className="shell">
         <SectionMark index="01" label="the problem" />
 
-        <div className="mt-8 grid gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-20">
+        <div className="mt-10 grid gap-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:gap-24">
           <div>
             <h2 className="font-display t-section text-paper">
               <MaskLines
@@ -29,7 +29,7 @@ export function Problem() {
                 ]}
               />
             </h2>
-            <Reveal kind="rise" className="lede mt-7 max-w-lg">
+            <Reveal kind="rise" className="lede mt-8 max-w-lg">
               <p>
                 No single thing fails loudly enough to fix. The enquiries still arrive, the
                 staff are still busy, the phone still rings. The loss is spread thin across
@@ -37,7 +37,7 @@ export function Problem() {
                 list.
               </p>
             </Reveal>
-            <Reveal kind="rise" delay={0.08} className="mt-6 max-w-lg">
+            <Reveal kind="rise" delay={0.08} className="mt-7 max-w-lg">
               <p className="text-paper-dim">
                 Here is what that actually looks like in a week.
               </p>
@@ -51,7 +51,7 @@ export function Problem() {
             {problemCosts.map((cost, i) => (
               <motion.li
                 key={cost.line}
-                className="relative pl-6 pb-8 last:pb-0 md:pl-8"
+                className="relative pb-10 pl-6 last:pb-0 md:pl-8"
                 initial={reduced ? false : { opacity: 0, x: -14 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, amount: 0.6 }}
@@ -74,9 +74,9 @@ export function Problem() {
         </div>
 
         {/* One stat, given room to land. Not a data dump. */}
-        <Reveal kind="wipe" className="mt-20 md:mt-28">
-          <div className="rule-t rule-b py-10 md:py-14">
-            <div className="grid gap-8 md:grid-cols-[auto_minmax(0,1fr)] md:items-center md:gap-14">
+        <Reveal kind="wipe" className="mt-24 md:mt-36">
+          <div className="rule-t rule-b py-14 md:py-20">
+            <div className="grid gap-10 md:grid-cols-[auto_minmax(0,1fr)] md:items-center md:gap-20">
               <p className="font-display text-[clamp(3.5rem,2rem+7vw,7rem)] leading-none tracking-tight text-blue">
                 98<span className="text-[0.45em] align-super">%</span>
               </p>
@@ -84,7 +84,7 @@ export function Problem() {
                 <p className="t-sub font-display text-paper">
                   of WhatsApp messages get opened. Email sits near twenty.
                 </p>
-                <p className="mt-4 text-paper-dim">
+                <p className="mt-5 text-paper-dim">
                   India is the largest WhatsApp market on earth, with over 535 million
                   monthly users, and 97% of Indian MSMEs already run their business through
                   it. If your follow-up lives in an email nobody opens, the problem was

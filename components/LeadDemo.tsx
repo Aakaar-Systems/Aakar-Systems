@@ -131,7 +131,7 @@ export function LeadDemo() {
   return (
     <div className="grid gap-4 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:gap-5">
       {/* --- the conversation --- */}
-      <div className="flex flex-col overflow-hidden rounded-sm border border-line bg-raised">
+      <div className="panel flex flex-col overflow-hidden">
         <div className="flex items-center gap-2.5 border-b border-line px-4 py-3">
           <span className="text-jade">
             <WhatsAppMark />
@@ -197,7 +197,7 @@ export function LeadDemo() {
               <button
                 type="button"
                 onClick={reset}
-                className="rounded-sm border border-line px-3 py-1.5 text-[0.8125rem] text-paper transition-colors hover:border-blue hover:text-blue"
+                className="rounded-[3px] border border-line px-3.5 py-2 text-[0.8125rem] text-paper transition-colors duration-200 hover:border-blue hover:text-blue"
               >
                 Run it again
               </button>
@@ -210,7 +210,7 @@ export function LeadDemo() {
                   type="button"
                   onClick={() => choose(opt)}
                   disabled={typing}
-                  className="rounded-sm border border-line px-3 py-1.5 text-[0.8125rem] text-paper transition-colors hover:border-jade hover:text-jade disabled:opacity-40"
+                  className="rounded-[3px] border border-line px-3.5 py-2 text-[0.8125rem] text-paper transition-[border-color,color,background-color] duration-200 hover:border-jade hover:bg-jade/[0.07] hover:text-jade disabled:opacity-40"
                 >
                   {opt.label}
                 </button>
@@ -221,7 +221,7 @@ export function LeadDemo() {
       </div>
 
       {/* --- what the system wrote down --- */}
-      <div className="rounded-sm border border-line bg-raised/50 p-4">
+      <div className="panel-quiet p-5">
         <p className="annot">lead record, written as you answer</p>
 
         <dl className="mt-4 space-y-3">

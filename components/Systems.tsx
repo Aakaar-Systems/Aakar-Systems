@@ -28,7 +28,7 @@ export function SystemsList() {
                 onClick={() => setOpen(isOpen ? "" : s.id)}
                 aria-expanded={isOpen}
                 aria-controls={`system-${s.id}`}
-                className="group flex w-full items-start gap-4 py-6 text-left md:gap-8 md:py-8"
+                className="group flex w-full items-start gap-4 py-7 text-left md:gap-8 md:py-9"
               >
                 <span
                   className={`annot tnum mt-2 shrink-0 transition-colors duration-300 ${
@@ -77,7 +77,7 @@ export function SystemsList() {
                   transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                   className="overflow-hidden"
                 >
-                  <div className="pb-8 pl-[2.75rem] pr-2 md:pl-[4.25rem]">
+                  <div className="pb-10 pl-[2.75rem] pr-2 md:pl-[4.25rem]">
                     <p className="max-w-2xl text-paper-dim">{s.body}</p>
 
                     {/* The same node-and-wire language, at the smallest scale. */}
@@ -113,11 +113,11 @@ export function SystemsList() {
 /** Home page: the five systems in brief, linking through to the full page. */
 export function SystemsTeaser() {
   return (
-    <section className="scroll-mt-24 py-24 md:py-32">
+    <section className="section scroll-mt-24">
       <div className="shell">
-        <SectionMark index="03" label="what we build" />
+        <SectionMark index="04" label="what we build" />
 
-        <div className="mt-6 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-end lg:gap-20">
+        <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-end lg:gap-24">
           <h2 className="font-display t-section text-paper">Five systems.</h2>
           <Reveal kind="rise" className="lede max-w-lg">
             <p>
@@ -127,18 +127,18 @@ export function SystemsTeaser() {
           </Reveal>
         </div>
 
-        <ul className="mt-12 grid gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-16 grid gap-px overflow-hidden rounded-[4px] border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
           {systems.map((s, i) => (
             <Reveal key={s.id} kind="settle" delay={i * 0.05} as="li">
               <Link
                 href="/what-we-build"
-                className="group flex h-full flex-col justify-between gap-6 bg-ink p-6 transition-colors duration-200 hover:bg-raised"
+                className="group relative flex h-full flex-col justify-between gap-8 bg-ink/80 p-7 backdrop-blur-sm transition-[background-color] duration-300 hover:bg-raised md:p-8"
               >
                 <div>
                   <span className="annot tnum text-blue">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <p className="mt-3 font-display text-2xl leading-tight text-paper transition-colors group-hover:text-blue">
+                  <p className="mt-4 font-display text-[1.625rem] leading-tight text-paper transition-colors duration-300 group-hover:text-blue">
                     {s.name}
                   </p>
                 </div>
@@ -150,9 +150,9 @@ export function SystemsTeaser() {
           <Reveal kind="settle" delay={0.3} as="li">
             <Link
               href="/what-we-build"
-              className="flex h-full flex-col justify-end gap-3 bg-raised/50 p-6 transition-colors duration-200 hover:bg-raised"
+              className="group flex h-full flex-col justify-end gap-3 bg-raised/60 p-7 backdrop-blur-sm transition-[background-color] duration-300 hover:bg-raised md:p-8"
             >
-              <p className="font-display text-2xl leading-tight text-paper">
+              <p className="font-display text-[1.625rem] leading-tight text-paper transition-colors duration-300 group-hover:text-blue">
                 See what each one does
               </p>
               <p className="annot text-blue">what we build</p>

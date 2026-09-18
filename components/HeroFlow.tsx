@@ -84,21 +84,33 @@ const ENQUIRIES: Enquiry[] = [
   },
 ];
 
-/* Narrow panels drop to four enquiries: six slots leave barely a hair
-   between chips on a phone, and the point lands just as well with four. */
+/* Slot count is driven by how much vertical room each chip gets. Six slots
+   left roughly a pixel between chips, which read as one solid block rather
+   than as separate enquiries. Five on a wide panel, four on a phone. */
 const NARROW_AT = 480;
-const SLOT_TOP = 0.11;
 const LEFT_X = 0.035;
 
-const layoutFor = (width: number) => {
+/**
+ * Slot geometry is computed in pixels from a FIXED chip height, not as even
+ * fractions of the panel. Chip labels wrap to one or two lines depending on
+ * the string, so evenly spaced tops left some chips overlapping a neighbour
+ * and others with a visible gap. Fixing the height makes the gaps identical
+ * and guarantees the last chip clears the bottom edge.
+ */
+const layoutFor = (width: number, height: number) => {
   const narrow = width > 0 && width < NARROW_AT;
-  const count = narrow ? 4 : ENQUIRIES.length;
+  const count = narrow ? 4 : 5;
+  const chipH = narrow ? 48 : 54;
+  const padY = narrow ? 24 : 30;
+  const usable = Math.max(height - padY * 2, chipH * count);
+  const gap = count > 1 ? (usable - chipH * count) / (count - 1) : 0;
   return {
     narrow,
     count,
+    chipH,
     colW: narrow ? 0.32 : 0.29,
     rightX: narrow ? 0.66 : 0.675,
-    step: 0.78 / (count - 1),
+    slotY: (i: number) => padY + i * (chipH + gap),
   };
 };
 
@@ -122,11 +134,11 @@ const Chip = memo(function Chip({
   layout: Layout;
 }) {
   const { w, h } = box;
-  const slotY = (SLOT_TOP + index * layout.step) * h;
+  const slotY = layout.slotY(index);
   const qx = LEFT_X * w;
   const rx = layout.rightX * w;
   const nodeX = 0.5 * w - layout.colW * w * 0.5;
-  const nodeY = 0.5 * h - 16;
+  const nodeY = 0.5 * h - layout.chipH / 2;
 
   const scatter = {
     x: data.sx * w,
@@ -163,7 +175,8 @@ const Chip = memo(function Chip({
       }
     >
       <div
-        className={`rounded-[3px] border px-2 py-1.5 backdrop-blur-[2px] transition-colors duration-500 sm:px-2.5 sm:py-2 ${
+        style={{ height: layout.chipH }}
+        className={`flex flex-col justify-center overflow-hidden rounded-[3px] border px-2 py-1.5 backdrop-blur-[2px] transition-colors duration-500 sm:px-2.5 ${
           done
             ? "border-jade/45 bg-jade/[0.07]"
             : state === "queued"
@@ -213,14 +226,22 @@ const Chip = memo(function Chip({
   );
 });
 
-function Wiring({ phase, layout }: { phase: Phase; layout: Layout }) {
+function Wiring({
+  phase,
+  layout,
+  height,
+}: {
+  phase: Phase;
+  layout: Layout;
+  height: number;
+}) {
   const drawn = phase !== "chaos";
   const active = phase === "flow" || phase === "live";
   const inX = layout.colW * 100 + LEFT_X * 100;
   const outX = layout.rightX * 100;
-  const slots = Array.from(
-    { length: layout.count },
-    (_, i) => (SLOT_TOP + i * layout.step) * 100 + 4.2,
+  /* Wires meet each chip at its vertical centre. */
+  const slots = Array.from({ length: layout.count }, (_, i) =>
+    height > 0 ? ((layout.slotY(i) + layout.chipH / 2) / height) * 100 : 0,
   );
 
   return (
@@ -336,7 +357,7 @@ export function HeroFlow() {
   const [box, setBox] = useState<Box>({ w: 0, h: 0 });
   const [phase, setPhase] = useState<Phase>("chaos");
   const [resolved, setResolved] = useState(0);
-  const layout = layoutFor(box.w);
+  const layout = layoutFor(box.w, box.h);
   const count = layout.count;
 
   /* Measure the panel so chips travel on pure GPU transforms rather than
@@ -379,7 +400,7 @@ export function HeroFlow() {
     <figure className="m-0">
       <div
         ref={panelRef}
-        className="drafting-grid relative aspect-[5/4] w-full overflow-hidden rounded-sm border border-line bg-raised/40 sm:aspect-[16/10]"
+        className="panel drafting-grid relative aspect-[5/4] w-full overflow-hidden sm:aspect-[4/3]"
         role="img"
         aria-label="A demonstration: scattered, unanswered customer enquiries from WhatsApp, missed calls, web forms and Instagram gather into a single intake, pass through the Aakaar system, and come out answered, qualified and booked."
       >
@@ -392,7 +413,7 @@ export function HeroFlow() {
           </span>
         </div>
 
-        <Wiring phase={phase} layout={layout} />
+        <Wiring phase={phase} layout={layout} height={box.h} />
         <SystemNode phase={phase} handled={resolved} />
 
         {box.w > 0 &&
@@ -426,7 +447,7 @@ function StaticFlow() {
   const shown = ENQUIRIES.slice(0, 4);
   return (
     <figure className="m-0">
-      <div className="drafting-grid relative w-full rounded-sm border border-line bg-raised/40 p-4">
+      <div className="panel drafting-grid relative w-full p-5">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-[1fr_auto_1fr] sm:items-center">
           <div className="space-y-2">
             <p className="annot">enquiries in</p>

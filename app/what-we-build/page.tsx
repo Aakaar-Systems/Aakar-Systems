@@ -3,6 +3,7 @@ import { PageHeader } from "@/components/PageHeader";
 import { SystemsList } from "@/components/Systems";
 import { CtaBand } from "@/components/CtaBand";
 import { Reveal } from "@/components/ui";
+import { Sectors } from "@/components/Engagements";
 
 export const metadata: Metadata = {
   title: "What we build",
@@ -20,14 +21,18 @@ export default function WhatWeBuildPage() {
         lede="We do not sell hours or a bundle of services. Each of these is a defined system with a defined outcome, built onto the tools you already use. Open any one to see what it actually does."
       />
 
-      <section className="py-16 md:py-24">
+      <section className="section-tight">
         <div className="shell">
           <SystemsList />
         </div>
       </section>
 
       {/* Plain-language explainer, for anyone who does not work in software. */}
-      <section className="pb-20 md:pb-28">
+      <section className="section-tight">
+        <Sectors />
+      </section>
+
+      <section className="pb-24 md:pb-36">
         <div className="shell">
           <Reveal kind="wipe">
             <div className="rounded-sm border border-line bg-raised/40 p-6 md:p-8">

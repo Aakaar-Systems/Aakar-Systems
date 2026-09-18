@@ -44,7 +44,7 @@ export function IndiaBody() {
       <ul>
         {CONTRASTS.map((row, i) => (
           <Reveal key={row.here} kind="wipe" delay={i * 0.05} as="li" amount={0.5}>
-            <div className="grid gap-4 border-b border-line py-7 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:gap-10">
+            <div className="grid gap-5 border-b border-line py-9 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:gap-14">
               <div className="flex items-start gap-3">
                 <span aria-hidden className="mt-3 h-px w-4 shrink-0 bg-line" />
                 <p className="text-paper-faint line-through decoration-line decoration-1">
@@ -63,7 +63,7 @@ export function IndiaBody() {
         ))}
       </ul>
 
-      <Reveal kind="rise" className="mt-14">
+      <Reveal kind="rise" className="mt-20">
         <div className="grid gap-8 md:grid-cols-[auto_minmax(0,1fr)] md:items-start md:gap-14">
           <p className="font-display text-[clamp(2.5rem,1.6rem+4vw,4.5rem)] leading-none tracking-tight text-ochre">
             Tier&nbsp;2
@@ -82,7 +82,7 @@ export function IndiaBody() {
         </div>
       </Reveal>
 
-      <div className="mt-16 grid gap-x-10 gap-y-8 border-t border-line pt-10 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-20 grid gap-x-12 gap-y-12 border-t border-line pt-14 sm:grid-cols-2 lg:grid-cols-4">
         {indiaStats.map((stat, i) => (
           <Reveal key={stat.label} kind="rise" delay={i * 0.06}>
             <p className="font-display text-3xl leading-none text-paper md:text-4xl">
@@ -100,10 +100,10 @@ export function IndiaBody() {
 /** Home page teaser: one line of positioning, then through to the studio page. */
 export function IndiaTeaser() {
   return (
-    <section className="py-24 md:py-32">
+    <section className="section">
       <div className="shell">
-        <SectionMark index="04" label="built for here" />
-        <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-20">
+        <SectionMark index="05" label="built for here" />
+        <div className="mt-10 grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-24">
           <div>
             <h2 className="font-display t-section text-paper">
               WhatsApp is not a channel here. It is the shop counter.
@@ -116,7 +116,7 @@ export function IndiaTeaser() {
               consideration cycle and a buyer at a desk. None of that holds for a clinic in
               Nashik or a studio in Indore, so we do not build as though it does.
             </p>
-            <div className="mt-8 grid gap-6 sm:grid-cols-3">
+            <div className="mt-10 grid gap-8 sm:grid-cols-3">
               {[indiaStats[0], indiaStats[2], indiaStats[3]].map((s) => (
                 <div key={s.label}>
                   <p className="font-display text-3xl leading-none text-blue">{s.value}</p>

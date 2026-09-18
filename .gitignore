@@ -16,3 +16,6 @@ next-env.d.ts
 # Next.js-generated agent instruction files (regenerated on dev)
 AGENTS.md
 CLAUDE.md
+
+.vercel
+.env*

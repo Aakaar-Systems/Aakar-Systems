@@ -3,6 +3,7 @@ import { Instrument_Serif, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google
 import { site } from "@/lib/site";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { Nav } from "@/components/Nav";
+import { Atmosphere } from "@/components/Atmosphere";
 import { Footer } from "@/components/Footer";
 import { ThemeScript } from "@/components/ThemeScript";
 import "./globals.css";
@@ -122,6 +123,7 @@ export default function RootLayout({
         >
           Skip to content
         </a>
+        <Atmosphere />
         <SmoothScroll />
         <Nav />
         <main id="main">{children}</main>

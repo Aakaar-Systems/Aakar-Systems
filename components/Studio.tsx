@@ -6,7 +6,7 @@ import { Reveal } from "./ui";
 export function StudioBody() {
   return (
     <div className="shell">
-      <div className="grid gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:gap-20">
+      <div className="grid gap-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:gap-24">
           <div>
             <Reveal kind="rise" className="max-w-xl space-y-5 text-paper-dim">
               <p className="text-[1.0625rem] leading-relaxed text-paper">
@@ -31,7 +31,7 @@ export function StudioBody() {
 
           {/* What the name actually means, set as a drafting note. */}
           <Reveal kind="wipe" className="lg:pt-4">
-            <div className="rounded-sm border border-line bg-raised/40 p-6 md:p-8">
+            <div className="panel p-7 md:p-10">
               <p className="font-display text-5xl leading-none text-paper md:text-6xl">आकार</p>
               <p className="annot mt-4">aa·kaar &nbsp;·&nbsp; noun</p>
               <p className="mt-3 text-paper">
@@ -52,7 +52,7 @@ export function StudioBody() {
         </div>
 
         {/* How we prefer to work, stated plainly. */}
-        <div className="mt-20 grid gap-x-10 gap-y-8 border-t border-line pt-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-24 grid gap-x-12 gap-y-12 border-t border-line pt-14 sm:grid-cols-2 lg:grid-cols-4">
           {[
             {
               title: "Few projects at a time",

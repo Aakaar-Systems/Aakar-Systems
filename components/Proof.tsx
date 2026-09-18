@@ -13,7 +13,7 @@ export function ProofBody() {
     <div className="shell">
       {/* The honesty label sits above the demo, not in small print under it. */}
       <Reveal kind="scale" amount={0.1}>
-        <div className="rounded-sm border border-line bg-raised/30 p-4 md:p-6">
+        <div className="panel p-5 md:p-8">
           <div className="mb-6 border-b border-line pb-6">
             <div className="flex flex-wrap items-center gap-3">
               <span className="annot rounded-[2px] border border-ochre px-2 py-1 text-[0.6875rem] text-ochre">
@@ -36,8 +36,8 @@ export function ProofBody() {
       </Reveal>
 
       {/* A second concept, described rather than embedded. */}
-      <Reveal kind="wipe" className="mt-14 md:mt-20">
-        <div className="rule-t pt-12">
+      <Reveal kind="wipe" className="mt-20 md:mt-28">
+        <div className="rule-t pt-14 md:pt-16">
           <div className="grid gap-8 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:gap-16">
             <div>
               <div className="flex flex-wrap items-center gap-3">
@@ -78,8 +78,8 @@ export function ProofBody() {
       </Reveal>
 
       {/* Said plainly, because it matters more than anything else on this page. */}
-      <Reveal kind="rise" className="mt-14">
-        <div className="rounded-sm border border-line bg-raised/40 p-6 md:p-8">
+      <Reveal kind="rise" className="mt-16 md:mt-20">
+        <div className="panel p-7 md:p-10">
           <p className="annot">a note on proof</p>
           <p className="mt-3 max-w-3xl text-paper">
             We are a new studio and we do not have paying clients yet. You will not find

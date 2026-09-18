@@ -18,7 +18,7 @@ export default function ContactPage() {
         lede="No pitch deck, no discovery form with fourteen fields. Describe what is slowing your business down in plain words, and we will tell you honestly whether a system is the right answer for it."
       />
 
-      <section className="py-16 md:py-28">
+      <section className="section-tight">
         <ContactBody />
       </section>
     </>

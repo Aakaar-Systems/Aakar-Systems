@@ -20,14 +20,14 @@ export function PageHeader({
   aside?: ReactNode;
 }) {
   return (
-    <header className="relative pt-28 md:pt-36">
+    <header className="relative pt-32 md:pt-44">
       <div className="shell">
         <div className="flex items-center gap-3">
           <span aria-hidden className="h-px w-6 bg-ochre" />
           <span className="annot">{eyebrow}</span>
         </div>
 
-        <div className="mt-6 grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:items-end lg:gap-16">
+        <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:items-end lg:gap-20">
           <h1 className="font-display t-hero text-paper">
             <MaskLines lines={lines} />
           </h1>
@@ -38,7 +38,7 @@ export function PageHeader({
 
         {aside && <div className="mt-10">{aside}</div>}
 
-        <div className="mt-12 h-px w-full bg-line md:mt-16" />
+        <div className="mt-16 h-px w-full bg-line md:mt-24" />
       </div>
     </header>
   );

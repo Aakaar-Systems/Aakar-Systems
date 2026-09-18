@@ -7,6 +7,7 @@ import { motion, useReducedMotion } from "motion/react";
 import { nav, whatsappHref } from "@/lib/site";
 import { ThemeToggle } from "./ThemeToggle";
 import { WhatsAppMark } from "./ui";
+import { ScrollProgress } from "./ScrollProgress";
 
 export function Nav() {
   const pathname = usePathname();
@@ -42,7 +43,7 @@ export function Nav() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300 ${
         scrolled || open
-          ? "border-b border-line bg-ink/90 backdrop-blur-md"
+          ? "border-b border-line bg-ink/70 backdrop-blur-xl backdrop-saturate-150"
           : "border-b border-transparent"
       }`}
     >
@@ -85,7 +86,7 @@ export function Nav() {
             href={whatsappHref()}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden items-center gap-2 rounded-sm border border-line px-4 py-2 text-[0.875rem] text-paper transition-colors hover:border-jade hover:text-jade sm:inline-flex"
+            className="hidden items-center gap-2 rounded-[3px] border border-line bg-raised/40 px-4 py-2.5 text-[0.875rem] text-paper transition-[border-color,color,background-color] duration-300 hover:border-jade/70 hover:bg-jade/[0.08] hover:text-jade sm:inline-flex"
           >
             <WhatsAppMark />
             Talk to us
@@ -96,7 +97,7 @@ export function Nav() {
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? "Close menu" : "Open menu"}
-            className="grid h-9 w-9 place-items-center rounded-sm border border-line text-paper lg:hidden"
+            className="grid h-10 w-10 place-items-center rounded-[3px] border border-line bg-raised/40 text-paper transition-colors duration-300 hover:border-line-bright lg:hidden"
           >
             <svg viewBox="0 0 20 20" className="h-4 w-4" aria-hidden focusable="false">
               <path
@@ -109,6 +110,8 @@ export function Nav() {
           </button>
         </div>
       </div>
+
+      {scrolled && <ScrollProgress />}
 
       {open && (
         <motion.div

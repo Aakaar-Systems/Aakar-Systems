@@ -30,7 +30,7 @@ export function ThemeToggle() {
       type="button"
       onClick={toggle}
       aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
-      className="grid h-9 w-9 place-items-center rounded-sm border border-line text-paper-dim transition-colors hover:border-blue hover:text-blue"
+      className="grid h-10 w-10 place-items-center rounded-[3px] border border-line bg-raised/40 text-paper-dim transition-[border-color,color,background-color] duration-300 hover:border-blue/70 hover:bg-blue/[0.08] hover:text-blue"
     >
       {/* Drafting-paper / blueprint toggle rather than a sun-moon cliché */}
       <svg viewBox="0 0 20 20" className="h-4 w-4" aria-hidden focusable="false">

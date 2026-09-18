@@ -125,3 +125,57 @@ export const process = [
   { step: "Measure", note: "Response time, qualified leads, conversion — instrumented from day one." },
   { step: "Optimize", note: "A monthly read of the numbers, then a change to the system." },
 ] as const;
+
+/** Who we build for. Positioning, not a claim about past work. */
+export const sectors = [
+  {
+    name: "Clinics and dental practices",
+    line: "Bookings, reminders and reschedules without tying up the front desk.",
+  },
+  {
+    name: "Interiors and contractors",
+    line: "Qualify on budget and timeline before anyone drives to a site visit.",
+  },
+  {
+    name: "Salons, spas and fitness studios",
+    line: "Fill slots from WhatsApp, and cut no-shows with a nudge the night before.",
+  },
+  {
+    name: "Consultants and coaches",
+    line: "Screen enquiries so your calendar only holds conversations worth having.",
+  },
+  {
+    name: "Schools, tuition and training",
+    line: "Handle admission questions at the hour parents actually ask them.",
+  },
+  {
+    name: "Local services and repair",
+    line: "Catch the missed call, capture the job, and follow up on the quote.",
+  },
+] as const;
+
+/**
+ * How an engagement is shaped. Deliberately no prices: we quote after the
+ * mapping step, and we would rather say that plainly than publish a number
+ * we would have to walk back.
+ */
+export const engagements = [
+  {
+    name: "Mapping",
+    shape: "One to two weeks",
+    body: "We sit with your workflow, draw every path an enquiry can take, and mark where it leaks. You get the map whether or not you build with us.",
+    gives: ["A drawn map of your enquiry flow", "The three leaks worth fixing first", "A fixed quote for the build"],
+  },
+  {
+    name: "The build",
+    shape: "Three to five weeks, fixed price",
+    body: "One system, wired to the tools you already use, tested against real enquiries before it touches a customer, launched in stages with a human watching the first week.",
+    gives: ["A working system in your accounts", "Your team trained on the handover points", "A human escalation path from day one"],
+  },
+  {
+    name: "Keeping it sharp",
+    shape: "Monthly, optional, cancel anytime",
+    body: "A system nobody tunes stops being useful by about month three. We read the numbers with you each month and change the system, not just the wording on a button.",
+    gives: ["A monthly read of what converted", "Changes made, not just recommended", "You keep everything if you stop"],
+  },
+] as const;

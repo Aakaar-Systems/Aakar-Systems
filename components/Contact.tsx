@@ -12,7 +12,7 @@ import { site, whatsappHref } from "@/lib/site";
 export function ContactBody() {
   return (
     <div className="shell">
-      <div className="grid gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-20">
+      <div className="grid gap-14 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-24">
         <div>
           {/* Primary channel. */}
           <Reveal kind="scale">
@@ -20,7 +20,7 @@ export function ContactBody() {
               href={whatsappHref()}
               target="_blank"
               rel="noopener noreferrer"
-              className="group block rounded-sm border border-jade/45 bg-jade/[0.06] p-6 transition-colors duration-200 hover:border-jade hover:bg-jade/[0.1]"
+              className="group block rounded-[4px] border border-jade/45 bg-jade/[0.07] p-7 transition-[border-color,background-color,transform] duration-300 hover:border-jade hover:bg-jade/[0.11] md:p-8"
             >
               <div className="flex items-start gap-4">
                 <span className="mt-0.5 text-2xl text-jade">
@@ -74,7 +74,7 @@ export function ContactBody() {
         </div>
 
         <Reveal kind="wipe" amount={0.1}>
-          <div className="rounded-sm border border-line bg-raised/40 p-6 md:p-8">
+          <div className="panel p-7 md:p-10">
             <p className="annot">the form, if that is easier</p>
             <div className="mt-6">
               <ContactForm />

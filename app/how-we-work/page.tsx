@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PageHeader } from "@/components/PageHeader";
 import { ProcessRail } from "@/components/Process";
 import { CtaBand } from "@/components/CtaBand";
+import { Engagements } from "@/components/Engagements";
 import { Reveal } from "@/components/ui";
 
 export const metadata: Metadata = {
@@ -43,13 +44,17 @@ export default function HowWeWorkPage() {
         lede="Most of the risk in a project like this sits in the first two steps. We spend real time there, so that by the time anything is built you already know what it will do, what it will not, and what it costs."
       />
 
-      <section className="py-16 md:py-24">
+      <section className="section-tight">
         <div className="shell">
           <ProcessRail />
         </div>
       </section>
 
-      <section className="pb-20 md:pb-28">
+      <section className="section-tight">
+        <Engagements />
+      </section>
+
+      <section className="pb-24 md:pb-36">
         <div className="shell">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)] lg:gap-20">
             <div className="lg:sticky lg:top-28 lg:self-start">

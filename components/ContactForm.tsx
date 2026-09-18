@@ -11,7 +11,7 @@ type Status =
   | { kind: "error"; message: string };
 
 const FIELD =
-  "w-full rounded-sm border border-line bg-ink px-3.5 py-3 text-[0.9375rem] text-paper placeholder:text-paper-faint transition-colors focus:border-blue focus:outline-none focus-visible:outline-none";
+  "w-full rounded-[3px] border border-line bg-ink/70 px-4 py-3.5 text-[0.9375rem] text-paper placeholder:text-paper-faint transition-[border-color,background-color] duration-200 hover:border-line-bright focus:border-blue focus:bg-ink focus:outline-none focus-visible:outline-none";
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>({ kind: "idle" });
@@ -60,7 +60,7 @@ export function ContactForm() {
 
   if (status.kind === "sent") {
     return (
-      <div className="rounded-sm border border-jade/50 bg-jade/[0.06] p-6">
+      <div className="rounded-[4px] border border-jade/50 bg-jade/[0.07] p-7">
         <p className="font-display text-2xl text-paper">That reached us.</p>
         <p className="mt-3 text-paper-dim">
           We read every one of these ourselves. Expect a reply within the working day,
@@ -158,7 +158,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={sending}
-          className="inline-flex items-center justify-center rounded-sm bg-paper px-6 py-3.5 text-[0.9375rem] font-medium text-ink transition-colors hover:bg-blue hover:text-white disabled:cursor-not-allowed disabled:opacity-60"
+          className="inline-flex items-center justify-center rounded-[3px] bg-paper px-7 py-4 text-[0.9375rem] font-medium text-ink shadow-[0_8px_24px_-14px_rgba(0,0,0,0.9)] transition-[transform,background-color,color,box-shadow] duration-300 hover:-translate-y-0.5 hover:bg-blue hover:text-white disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0"
         >
           {sending ? "Sending" : "Send this over"}
         </button>
@@ -168,7 +168,7 @@ export function ContactForm() {
       {(status.kind === "not_configured" || status.kind === "error") && (
         <div
           role="alert"
-          className="rounded-sm border border-ochre/50 bg-ochre/[0.07] p-4 text-sm"
+          className="rounded-[4px] border border-ochre/50 bg-ochre/[0.08] p-5 text-sm"
         >
           <p className="font-medium text-ochre">Your message was not delivered.</p>
           <p className="mt-1.5 text-paper-dim">{status.message}</p>
