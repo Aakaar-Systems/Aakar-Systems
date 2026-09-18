@@ -479,13 +479,15 @@ function StageCopy({ act }: { act: number }) {
           animate={{
             opacity: i === act ? 1 : 0,
             y: i === act ? 0 : i < act ? -18 : 18,
-            /* Hide outright once faded. Leaving a 0-opacity copy stacked on
-               the live one is what produced the ghosted double headline. */
-            transitionEnd: { visibility: i === act ? "visible" : "hidden" },
           }}
+          /* The ghosted double headline came from a symmetric crossfade, so
+             the outgoing stage leaves quickly and the incoming one waits for
+             it. Deliberately NOT solved with a visibility flip on animation
+             end: scrubbing scroll changes the act faster than the animations
+             resolve, and a stale callback then hides the live stage. */
           transition={{
-            duration: i === act ? 0.55 : 0.3,
-            delay: i === act ? 0.12 : 0,
+            duration: i === act ? 0.5 : 0.25,
+            delay: i === act ? 0.18 : 0,
             ease: [0.16, 1, 0.3, 1],
           }}
           style={{ pointerEvents: i === act ? "auto" : "none" }}
