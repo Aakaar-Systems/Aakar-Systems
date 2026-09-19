@@ -5,6 +5,7 @@ import { SystemsTeaser } from "@/components/Systems";
 import { IndiaTeaser } from "@/components/IndiaAngle";
 import { CtaBand } from "@/components/CtaBand";
 import { LeakCalculator } from "@/components/LeakCalculator";
+import { AgentFloor } from "@/components/AgentFloor";
 import { SectionMark } from "@/components/ui";
 
 export default function Home() {
@@ -28,6 +29,17 @@ export default function Home() {
       {/* The signature sequence. Pinned, scroll-linked, self-assembling. */}
       <SystemScroll />
       <SystemsTeaser />
+
+      {/* Scale: what several of these systems look like running together as a
+          day, with work moving between agents. Scroll-driven, then it keeps
+          running rather than freezing on the last frame. */}
+      <section className="pt-8">
+        <div className="shell mb-6">
+          <SectionMark index="05" label="the whole floor" />
+        </div>
+        <AgentFloor />
+      </section>
+
       <IndiaTeaser />
       <CtaBand />
     </>

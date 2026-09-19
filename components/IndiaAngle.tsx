@@ -102,7 +102,7 @@ export function IndiaTeaser() {
   return (
     <section className="section">
       <div className="shell">
-        <SectionMark index="05" label="built for here" />
+        <SectionMark index="06" label="built for here" />
         <div className="mt-10 grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-24">
           <div>
             <h2 className="font-display t-section text-paper">

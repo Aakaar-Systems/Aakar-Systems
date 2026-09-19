@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import { PageHeader } from "@/components/PageHeader";
 import { ProofBody } from "@/components/Proof";
 import { CtaBand } from "@/components/CtaBand";
+import { AgentFloor } from "@/components/AgentFloor";
+import { SectionMark } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "Our work",
   description:
-    "Concept systems built in-house to demonstrate the approach: a working AI Lead System you can try, and an AI Booking System for a clinic. No invented clients, no fabricated testimonials.",
+    "See what AI automation looks like across a whole business: six agents running sales, support, bookings, operations, accounts and reporting, handing work to each other. Plus concept systems you can try. No invented clients, no fabricated testimonials.",
   alternates: { canonical: "/our-work" },
 };
 
@@ -15,11 +17,22 @@ export default function OurWorkPage() {
     <>
       <PageHeader
         eyebrow="our work"
-        lines={["Try it yourself.", "It takes about", "twenty seconds."]}
-        lede="We are a new studio, so what follows are concept systems we built ourselves rather than client case studies. The first one is live on this page. Answer it the way a customer would."
+        lines={["Watch it run.", "Then try one", "yourself."]}
+        lede="First, what automation looks like across a whole business rather than a single workflow — six agents covering six areas, handing work to each other. Then two concept systems we built ourselves, one of which is live on this page."
       />
 
+      {/* The scale piece: many agents, one business, work moving between them. */}
       <section className="section-tight">
+        <div className="shell mb-8">
+          <SectionMark index="01" label="the whole floor" />
+        </div>
+        <AgentFloor />
+      </section>
+
+      <section className="section-tight">
+        <div className="shell mb-10">
+          <SectionMark index="02" label="try one yourself" />
+        </div>
         <ProofBody />
       </section>
 
