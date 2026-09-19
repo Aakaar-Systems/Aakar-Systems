@@ -65,13 +65,16 @@ export default function HowWeWorkPage() {
 
             <dl className="border-t border-line">
               {FAQS.map((item, i) => (
-                <Reveal key={item.q} kind="rise" delay={i * 0.04}>
-                  <div className="border-b border-line py-6">
-                    <dt className="font-display text-xl leading-snug text-paper md:text-2xl">
-                      {item.q}
-                    </dt>
-                    <dd className="mt-3 max-w-2xl text-paper-dim">{item.a}</dd>
-                  </div>
+                <Reveal
+                  key={item.q}
+                  kind="rise"
+                  delay={i * 0.04}
+                  className="border-b border-line py-6"
+                >
+                  <dt className="font-display text-xl leading-snug text-paper md:text-2xl">
+                    {item.q}
+                  </dt>
+                  <dd className="mt-3 max-w-2xl text-paper-dim">{item.a}</dd>
                 </Reveal>
               ))}
             </dl>

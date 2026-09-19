@@ -4,6 +4,7 @@ import { site } from "@/lib/site";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { Nav } from "@/components/Nav";
 import { Atmosphere } from "@/components/Atmosphere";
+import { TopScrim } from "@/components/TopScrim";
 import { Footer } from "@/components/Footer";
 import { ThemeScript } from "@/components/ThemeScript";
 import "./globals.css";
@@ -125,6 +126,7 @@ export default function RootLayout({
         </a>
         <Atmosphere />
         <SmoothScroll />
+        <TopScrim />
         <Nav />
         <main id="main">{children}</main>
         <Footer />

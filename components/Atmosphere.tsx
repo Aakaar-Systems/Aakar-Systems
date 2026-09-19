@@ -7,6 +7,12 @@
  *   3. paper grain
  *   4. a vignette that seats the sheet on the table
  *
+ * Motion is CSS-only and very slow: the sheet drifts over 64s, the lamp
+ * breathes over 22s, and the grain steps between eight offsets so it reads as
+ * grain rather than as something sliding. All of it is transform, opacity or
+ * background-position, so nothing triggers layout, and the reduced-motion
+ * block in globals.css freezes every frame of it.
+ *
  * This is a server component with no state and no scroll listeners — it
  * paints once and costs nothing afterwards. The grain is a single inline
  * SVG turbulence, so it adds no network request.
@@ -28,11 +34,11 @@ export function Atmosphere() {
   return (
     <div aria-hidden className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
       {/* 1 — the sheet's ruling */}
-      <div className="drafting-grid grid-fade absolute inset-0" />
+      <div className="drafting-grid grid-fade anim-sheet-drift absolute -inset-16" />
 
       {/* 2 — the lamp, and the warm bounce off the table */}
       <div
-        className="absolute inset-0"
+        className="anim-lamp absolute inset-0"
         style={{
           background:
             "radial-gradient(ellipse 60% 42% at 50% -8%, var(--glow-a), transparent 70%)," +
@@ -42,7 +48,7 @@ export function Atmosphere() {
 
       {/* 3 — paper grain */}
       <div
-        className="absolute inset-0"
+        className="anim-grain absolute -inset-8"
         style={{
           backgroundImage: `url("${GRAIN}")`,
           backgroundRepeat: "repeat",

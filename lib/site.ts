@@ -27,6 +27,7 @@ export const socials = [
 export const nav = [
   { label: "What we build", href: "/what-we-build" },
   { label: "How we work", href: "/how-we-work" },
+  { label: "Pricing", href: "/pricing" },
   { label: "Our work", href: "/our-work" },
   { label: "Studio", href: "/studio" },
   { label: "Contact", href: "/contact" },
@@ -37,6 +38,7 @@ export const routes = [
   "/",
   "/what-we-build",
   "/how-we-work",
+  "/pricing",
   "/our-work",
   "/studio",
   "/contact",

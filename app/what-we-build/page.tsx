@@ -4,21 +4,27 @@ import { SystemsList } from "@/components/Systems";
 import { CtaBand } from "@/components/CtaBand";
 import { Reveal } from "@/components/ui";
 import { Sectors } from "@/components/Engagements";
+import { ConnectedLayers, PricingTeaser, Retainer } from "@/components/Offer";
 
 export const metadata: Metadata = {
   title: "What we build",
   description:
-    "Five systems with defined outcomes: AI Lead, Customer, Booking, Operations and Growth systems — built onto the tools your business already uses.",
+    "Five AI systems with defined outcomes — Lead, Customer, Booking, Operations and Growth — built onto the tools your business already uses. Web, design, content and growth work included. Pricing from ₹15,000.",
   alternates: { canonical: "/what-we-build" },
 };
 
+/**
+ * Ordered as a funnel, not a menu:
+ *   the five systems (the offer)  →  what comes included  →  what happens
+ *   after launch  →  a doorway to pricing  →  who it is for.
+ */
 export default function WhatWeBuildPage() {
   return (
     <>
       <PageHeader
         eyebrow="what we build"
         lines={["Five systems.", "Each one does", "a specific job."]}
-        lede="We do not sell hours or a bundle of services. Each of these is a defined system with a defined outcome, built onto the tools you already use. Open any one to see what it actually does."
+        lede="We do not sell hours or a bundle of services. Each of these is a defined system with a defined outcome, built onto the tools you already use. Open any one to see how it is wired."
       />
 
       <section className="section-tight">
@@ -27,17 +33,32 @@ export default function WhatWeBuildPage() {
         </div>
       </section>
 
-      {/* Plain-language explainer, for anyone who does not work in software. */}
+      {/* Web / design / content / growth as one strip of included layers,
+          never as four more headline services. */}
+      <section className="section-tight">
+        <ConnectedLayers />
+      </section>
+
+      <section className="section-tight">
+        <Retainer />
+      </section>
+
+      {/* Price anchors live on their own page; this is just the doorway. */}
+      <section className="section-tight">
+        <PricingTeaser />
+      </section>
+
       <section className="section-tight">
         <Sectors />
       </section>
 
+      {/* Plain-language explainer, for anyone who does not work in software. */}
       <section className="pb-24 md:pb-36">
         <div className="shell">
           <Reveal kind="wipe">
-            <div className="rounded-sm border border-line bg-raised/40 p-6 md:p-8">
+            <div className="panel p-7 md:p-10">
               <p className="annot">in plain words</p>
-              <div className="mt-4 grid gap-8 md:grid-cols-3 md:gap-12">
+              <div className="mt-5 grid gap-8 md:grid-cols-3 md:gap-12">
                 <div>
                   <p className="font-display text-xl text-paper">
                     You do not need to understand the technology.

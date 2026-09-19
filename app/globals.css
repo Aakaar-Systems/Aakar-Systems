@@ -132,8 +132,11 @@ body {
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-/* Page content sits above the fixed atmosphere layers. */
-body > header,
+/* Page content sits above the fixed atmosphere layers.
+   The header is deliberately NOT in this list: it is `position: fixed`, and
+   this rule is unlayered while Tailwind's utilities live in @layer utilities,
+   so an unlayered `position: relative` here silently beats `.fixed` in the
+   cascade and drops the navbar into normal flow. */
 body > main,
 body > footer {
   position: relative;
@@ -327,6 +330,50 @@ input[type="range"]:focus-visible {
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ---------- atmosphere motion ----------
+   Slow enough to be felt rather than watched. The grid drifts like a sheet
+   being nudged on a table, the lamp breathes, and the grain flickers the way
+   film grain does. All transform/opacity or background-position, so none of
+   it triggers layout. The reduced-motion block above freezes all three. */
+
+@keyframes sheet-drift {
+  0%   { transform: translate3d(0, 0, 0); }
+  50%  { transform: translate3d(-36px, -24px, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+@keyframes lamp-breathe {
+  0%, 100% { opacity: 0.75; transform: scale(1); }
+  50%      { opacity: 1;    transform: scale(1.08); }
+}
+
+/* Eight discrete offsets: continuous motion reads as a moving texture,
+   stepped offsets read as grain. */
+@keyframes grain-flicker {
+  0%   { background-position: 0 0; }
+  12%  { background-position: -34px 18px; }
+  25%  { background-position: 22px -30px; }
+  37%  { background-position: -18px -22px; }
+  50%  { background-position: 30px 26px; }
+  62%  { background-position: -26px 12px; }
+  75%  { background-position: 16px -16px; }
+  87%  { background-position: -12px 28px; }
+  100% { background-position: 0 0; }
+}
+
+.anim-sheet-drift { animation: sheet-drift 64s ease-in-out infinite; }
+.anim-lamp        { animation: lamp-breathe 22s ease-in-out infinite; }
+.anim-grain       { animation: grain-flicker 1.6s steps(1, end) infinite; }
+
+/* A progressive blur under the fixed header: content softens as it slides
+   beneath the bar instead of colliding with it. */
+.top-scrim {
+  -webkit-backdrop-filter: blur(7px);
+  backdrop-filter: blur(7px);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 42%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 42%, transparent 100%);
 }
 
 @keyframes pulse-node {
