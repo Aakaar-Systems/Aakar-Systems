@@ -14,23 +14,23 @@ export const metadata: Metadata = {
 const NOTES = [
   {
     q: "Why ranges instead of a fixed price?",
-    a: "Because the honest answer depends on your workflow. A fixed number published before we have seen your business is a promise we might have to walk back — and we would rather be trusted than be first.",
+    a: "The honest answer depends on your workflow. A fixed number published before we have seen your business is a promise we might have to walk back.",
   },
   {
     q: "When do I get a real number?",
-    a: "After mapping. That step costs you a conversation, produces a drawn map of your enquiry flow that is yours either way, and ends with a fixed quote for the build.",
+    a: "After mapping. It costs you a conversation, the map is yours either way, and it ends with a fixed quote.",
   },
   {
     q: "Is the retainer compulsory?",
-    a: "No. The system is yours and keeps running without us. The retainer exists because a system nobody tunes drifts out of usefulness by about month three, not because we hold the keys.",
+    a: "No. The system is yours and runs without us. The retainer exists because a system nobody tunes drifts by month three.",
   },
   {
     q: "What if my budget is under all of this?",
-    a: "Say so. If a system is not worth building for you yet, the Digital Foundation tier above may be the right first step — or we will tell you plainly to spend the money elsewhere for now.",
+    a: "Say so. Digital Foundation above may be the right first step, or we will tell you to spend the money elsewhere for now.",
   },
   {
     q: "Will these prices change?",
-    a: "Probably upward. These are conservative anchors from a studio with no delivery history. We would rather revise them once we know our real costs than quote high and hope.",
+    a: "Probably upward. These are conservative anchors from a studio with no delivery history yet.",
   },
 ];
 
@@ -40,7 +40,7 @@ export default function PricingPage() {
       <PageHeader
         eyebrow="pricing"
         lines={["What it costs,", "before you", "have to ask."]}
-        lede="You should not have to book a call just to find out whether we are in your league. These are real anchors: ranges we would actually quote, with the honest caveat that the final number depends on what your workflow turns out to need."
+        lede="You should not have to book a call to find out whether we are in your league. Real ranges we would quote, with the final number set after mapping."
       />
 
       <section className="section-tight">

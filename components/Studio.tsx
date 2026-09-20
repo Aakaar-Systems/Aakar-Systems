@@ -10,21 +10,16 @@ export function StudioBody() {
           <div>
             <Reveal kind="rise" className="max-w-xl space-y-5 text-paper-dim">
               <p className="text-[1.0625rem] leading-relaxed text-paper">
-                Aakaar started with a small group of us who could have taken separate
-                freelance work and done fine at it. We did not want to build landing pages
-                in isolation. We wanted to build the thing underneath — the system a
-                business actually runs on.
+                We could have taken separate freelance work and done fine at it. We wanted
+                to build the thing underneath instead — the system a business runs on.
               </p>
               <p>
-                So the studio is set up for that. We take a small number of projects at a
-                time, we do the discovery properly, and we stay on after launch because a
-                system that nobody tunes stops being useful by about month three.
+                So we take few projects at a time, do the discovery properly, and stay on
+                after launch.
               </p>
               <p>
-                We are early. We are honest about that, which is why there are no client
-                logos on this page and no invented testimonials. What we can show you is
-                the work itself, the way we think, and systems we have built to prove the
-                approach holds up.
+                We are early, and honest about it. No client logos here, no invented
+                testimonials — only work we built ourselves.
               </p>
             </Reveal>
           </div>
@@ -39,10 +34,8 @@ export function StudioBody() {
               </p>
               <div className="my-6 h-px w-full bg-line" />
               <p className="text-paper-dim">
-                It is a fair description of the job. You arrive with a problem that is real
-                but shapeless — enquiries going cold somewhere, a team stretched thin, no
-                clear picture of what is actually working. We give it a form you can point
-                at, operate, and improve.
+                A fair description of the job. You arrive with something real but shapeless.
+                We give it a form you can point at and operate.
               </p>
               <p className="mt-6 border-l border-ochre pl-4 font-display text-xl leading-snug text-paper">
                 We give your business problem a working, intelligent form.
@@ -56,19 +49,19 @@ export function StudioBody() {
           {[
             {
               title: "Few projects at a time",
-              note: "So the discovery is real and the follow-through is real.",
+              note: "So discovery and follow-through are real.",
             },
             {
               title: "Built on what you run",
-              note: "Your CRM, your calendar, your WhatsApp number. Not a platform you rent from us.",
+              note: "Your CRM, calendar and number. Not a platform you rent.",
             },
             {
               title: "You own the system",
-              note: "Accounts, data and access stay in your name from day one.",
+              note: "Accounts and data stay in your name.",
             },
             {
               title: "We stay after launch",
-              note: "A monthly read of the numbers, then a change to the system.",
+              note: "A monthly read, then a change.",
             },
           ].map((item, i) => (
             <Reveal key={item.title} kind="settle" delay={i * 0.06}>

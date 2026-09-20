@@ -31,15 +31,13 @@ export function Problem() {
             </h2>
             <Reveal kind="rise" className="lede mt-8 max-w-lg">
               <p>
-                No single thing fails loudly enough to fix. The enquiries still arrive, the
-                staff are still busy, the phone still rings. The loss is spread thin across
-                a hundred small gaps, which is why it never reaches the top of anyone&rsquo;s
-                list.
+                Nothing fails loudly enough to fix. The loss is spread thin across a
+                hundred small gaps.
               </p>
             </Reveal>
             <Reveal kind="rise" delay={0.08} className="mt-7 max-w-lg">
               <p className="text-paper-dim">
-                Here is what that actually looks like in a week.
+                One week, in four moments.
               </p>
             </Reveal>
           </div>
@@ -85,10 +83,8 @@ export function Problem() {
                   of WhatsApp messages get opened. Email sits near twenty.
                 </p>
                 <p className="mt-5 text-paper-dim">
-                  India is the largest WhatsApp market on earth, with over 535 million
-                  monthly users, and 97% of Indian MSMEs already run their business through
-                  it. If your follow-up lives in an email nobody opens, the problem was
-                  never the follow-up. It was the pipe.
+                  If your follow-up lives in an email nobody opens, the problem was never
+                  the follow-up. It was the pipe.
                 </p>
               </div>
             </div>

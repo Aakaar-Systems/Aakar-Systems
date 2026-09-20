@@ -130,7 +130,7 @@ export const systemDetail: Record<string, SystemDetail> = {
 export const connectedLayers = [
   {
     name: "Web",
-    line: "The site, page, portal or dashboard the system runs on.",
+    line: "Where the system lives.",
     items: [
       "AI-ready business websites",
       "Landing pages",
@@ -142,7 +142,7 @@ export const connectedLayers = [
   },
   {
     name: "Design",
-    line: "How it looks, how it reads, including the chat itself.",
+    line: "How it looks and reads.",
     items: [
       "UI and UX design",
       "Brand identity",
@@ -154,7 +154,7 @@ export const connectedLayers = [
   },
   {
     name: "Content",
-    line: "What the system says, and what brings people to it.",
+    line: "What it says, and what brings people in.",
     items: [
       "Social content",
       "Content calendars",
@@ -166,7 +166,7 @@ export const connectedLayers = [
   },
   {
     name: "Growth",
-    line: "Proof that any of it worked, and what to change next.",
+    line: "Proof it worked, and what to change.",
     items: [
       "Analytics setup",
       "Conversion tracking",
@@ -180,7 +180,7 @@ export const connectedLayers = [
 
 export const retainer = {
   name: "Always-On Optimization",
-  line: "A system nobody tunes stops being useful by about month three. This is what happens after launch.",
+  line: "A system nobody tunes drifts by month three.",
   items: [
     "System monitoring and uptime",
     "Automation maintenance",
@@ -204,7 +204,7 @@ export const pricing = [
     range: "₹15,000 – ₹30,000",
     from: "₹15,000",
     timeline: "1 – 2 weeks",
-    best: "Automating one clear workflow.",
+    best: "One clear workflow.",
     includes: [
       "One automation workflow",
       "One AI component",
@@ -213,14 +213,14 @@ export const pricing = [
       "Landing page, or wired into your existing site",
       "Basic analytics",
     ],
-    example: "Website enquiry, AI qualification, WhatsApp notification, CRM.",
+    example: "Enquiry, qualify, notify, CRM.",
   },
   {
     name: "Business",
     range: "₹40,000 – ₹90,000",
     from: "₹40,000",
     timeline: "3 – 5 weeks",
-    best: "A complete system across your lead and customer flow.",
+    best: "A full system, lead to customer.",
     featured: true,
     includes: [
       "AI chatbot",
@@ -231,14 +231,14 @@ export const pricing = [
       "Multiple workflows",
       "Analytics and an optimization period",
     ],
-    example: "A full Lead, Booking or Customer System, end to end.",
+    example: "A Lead, Booking or Customer System.",
   },
   {
     name: "Retainer",
     range: "₹8,000 – ₹20,000 / mo",
     from: "₹8,000 / mo",
     timeline: "Ongoing, cancel anytime",
-    best: "A live system you want monitored and improved.",
+    best: "A live system, kept sharp.",
     includes: [
       "System monitoring",
       "Automation maintenance",
@@ -248,7 +248,7 @@ export const pricing = [
       "New workflow additions",
       "Website maintenance",
     ],
-    example: "Always-On Optimization, billed monthly.",
+    example: "Always-On Optimization.",
   },
 ] as const;
 
@@ -260,14 +260,14 @@ export const pricing = [
  */
 export const digitalFoundation = {
   intro:
-    "A system needs something to run on. If there is no website, no WhatsApp Business profile and nothing for a CRM to connect to, automation is the wrong first step. This is the groundwork, and it is genuinely simpler work priced accordingly.",
+    "A system needs something to run on. No website, no WhatsApp Business profile, nothing for a CRM to reach — automation is the wrong first step. This is the groundwork.",
   tiers: [
     {
       name: "Get Online",
       range: "₹3,000 – ₹6,000",
       from: "₹3,000",
       timeline: "3 – 5 days",
-      best: "Almost no digital presence today.",
+      best: "No digital presence yet.",
       includes: [
         "Google Business Profile set up and optimized",
         "WhatsApp Business profile, catalog and hours",
@@ -280,7 +280,7 @@ export const digitalFoundation = {
       range: "₹10,000 – ₹20,000",
       from: "₹10,000",
       timeline: "1 – 2 weeks",
-      best: "Ready for a proper digital storefront.",
+      best: "Ready for a storefront.",
       includes: [
         "Everything in Get Online",
         "Digital catalog or menu, or a simple website",
@@ -293,7 +293,7 @@ export const digitalFoundation = {
       range: "₹18,000 – ₹30,000",
       from: "₹18,000",
       timeline: "2 – 3 weeks",
-      best: "Selling beyond your local footprint.",
+      best: "Selling beyond your area.",
       includes: [
         "Everything in Digital Storefront",
         "ONDC seller onboarding",

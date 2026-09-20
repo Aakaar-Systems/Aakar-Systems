@@ -15,7 +15,7 @@ export default function ContactPage() {
       <PageHeader
         eyebrow="start a project"
         lines={["Tell us what", "is leaking."]}
-        lede="No pitch deck, no discovery form with fourteen fields. Describe what is slowing your business down in plain words, and we will tell you honestly whether a system is the right answer for it."
+        lede="No pitch deck, no form with fourteen fields. Tell us what is slowing you down, and we will say honestly whether a system is the answer."
       />
 
       <section className="section-tight">

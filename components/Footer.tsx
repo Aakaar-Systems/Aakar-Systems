@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { nav, site, socials, whatsappHref } from "@/lib/site";
-import { WhatsAppMark } from "./ui";
+import { SocialMark, WhatsAppMark } from "./ui";
 
 /** Underline that grows from the left on hover, rather than a colour flip. */
 const LINK =
@@ -22,7 +22,35 @@ export function Footer() {
               Aakaar<span className="text-blue">.</span>
             </p>
             <p className="mt-6 max-w-xs text-paper-dim">{site.tagline}</p>
-            <p className="annot mt-8">आकार — form, shape, manifestation</p>
+            <p className="annot mt-6">आकार — form, shape, manifestation</p>
+
+            {/* Marks, not link text: the wordmark should be the only words here. */}
+            <ul className="mt-8 flex items-center gap-3">
+              {socials.map((s) => (
+                <li key={s.label}>
+                  {s.pending ? (
+                    <span
+                      role="img"
+                      title={`${s.label} — coming soon`}
+                      aria-label={`${s.label}, coming soon`}
+                      className="grid h-10 w-10 place-items-center rounded-[3px] border border-line text-paper-faint"
+                    >
+                      <SocialMark name={s.label} />
+                    </span>
+                  ) : (
+                    <a
+                      href={s.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={s.label}
+                      className="grid h-10 w-10 place-items-center rounded-[3px] border border-line text-paper-dim transition-[color,border-color,background-color] duration-300 hover:border-blue/70 hover:bg-blue/[0.08] hover:text-blue"
+                    >
+                      <SocialMark name={s.label} />
+                    </a>
+                  )}
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div>
@@ -52,44 +80,17 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-1 md:gap-8">
-            <div>
-              <p className="annot">pages</p>
-              <ul className="mt-4">
-                {nav.map((item) => (
-                  <li key={item.href}>
-                    <Link href={item.href} className={`${LINK} text-paper-dim hover:text-paper`}>
-                      <span className={UNDERLINE}>{item.label}</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <p className="annot">elsewhere</p>
-              <ul className="mt-4">
-                {socials.map((s) => (
-                  <li key={s.label}>
-                    {s.pending ? (
-                      <span className="inline-flex min-h-[2.375rem] items-center gap-2 text-paper-faint">
-                        {s.label}
-                        <span className="annot text-[0.625rem]">soon</span>
-                      </span>
-                    ) : (
-                      <a
-                        href={s.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`${LINK} text-paper-dim hover:text-paper`}
-                      >
-                        <span className={UNDERLINE}>{s.label}</span>
-                      </a>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div>
+            <p className="annot">pages</p>
+            <ul className="mt-4">
+              {nav.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className={`${LINK} text-paper-dim hover:text-paper`}>
+                    <span className={UNDERLINE}>{item.label}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 

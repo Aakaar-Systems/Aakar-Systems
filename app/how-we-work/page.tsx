@@ -15,23 +15,23 @@ export const metadata: Metadata = {
 const FAQS = [
   {
     q: "How long does a system take to build?",
-    a: "Most first systems go live in three to five weeks. Discovery and mapping take the first week or so, and we would rather spend the time there than rebuild something later.",
+    a: "Three to five weeks. Discovery and mapping take the first week, and we would rather spend it there than rebuild later.",
   },
   {
     q: "What do you need from us?",
-    a: "A couple of hours of your time up front, access to the tools you already use, and someone on your side who can answer questions about how the business actually runs day to day.",
+    a: "A couple of hours up front, access to your tools, and someone who can answer how the business actually runs.",
   },
   {
     q: "What does it cost?",
-    a: "It depends on the system and how much needs integrating. We quote a fixed price for the build after the mapping step, so you are never agreeing to an open-ended number.",
+    a: "It depends on the system. We quote a fixed price after mapping, so you never agree to an open-ended number.",
   },
   {
     q: "What happens if it gets something wrong?",
-    a: "Every system has a human escalation path from day one, and we watch the first week closely. If the system is unsure, it hands over rather than guessing.",
+    a: "Every system has a human escalation path from day one. If it is unsure, it hands over rather than guessing.",
   },
   {
     q: "Do we own it?",
-    a: "Yes. Accounts, data and access stay in your name. If you stop working with us, the system keeps running.",
+    a: "Yes. Accounts and data stay in your name, and it keeps running if you stop working with us.",
   },
 ];
 
@@ -41,7 +41,7 @@ export default function HowWeWorkPage() {
       <PageHeader
         eyebrow="how we work"
         lines={["Eight steps.", "No mystery in", "any of them."]}
-        lede="Most of the risk in a project like this sits in the first two steps. We spend real time there, so that by the time anything is built you already know what it will do, what it will not, and what it costs."
+        lede="Most of the risk sits in the first two steps, so we spend real time there. By the time anything is built you know what it does and what it costs."
       />
 
       <section className="section-tight">

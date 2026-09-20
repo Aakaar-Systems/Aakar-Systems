@@ -18,7 +18,7 @@ export default function OurWorkPage() {
       <PageHeader
         eyebrow="our work"
         lines={["Watch it run.", "Then try one", "yourself."]}
-        lede="First, what automation looks like across a whole business rather than a single workflow — six agents covering six areas, handing work to each other. Then two concept systems we built ourselves, one of which is live on this page."
+        lede="First, a whole business running on six agents that hand work to each other. Then two concept systems we built ourselves, one live on this page."
       />
 
       {/* The scale piece: many agents, one business, work moving between them. */}

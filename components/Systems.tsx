@@ -181,10 +181,7 @@ export function SystemsTeaser() {
         <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-end lg:gap-24">
           <h2 className="font-display t-section text-paper">Five systems.</h2>
           <Reveal kind="rise" className="lede max-w-lg">
-            <p>
-              We do not sell hours or a bundle of services. Each of these is a defined
-              system with a defined outcome, built onto the tools you already use.
-            </p>
+            <p>Each one a defined outcome, not a bundle of services.</p>
           </Reveal>
         </div>
 

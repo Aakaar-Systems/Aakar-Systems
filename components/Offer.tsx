@@ -25,8 +25,7 @@ export function ConnectedLayers() {
             You are never buying a website separately.
           </h2>
           <p className="mt-3 max-w-2xl text-paper-dim">
-            Every system needs a place to live, a way to look, something to say and a way
-            to prove it worked. That work is part of the build, not a second invoice.
+            Part of the build, not a second invoice.
           </p>
         </div>
 
@@ -189,9 +188,8 @@ export function Pricing() {
       <Reveal kind="rise" className="mt-8">
         <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
           <p className="annot max-w-xl leading-relaxed">
-            The final price depends on your workflow. These are honest starting anchors
-            from a studio with no delivery history yet, and we would rather revise them up
-            later than quote you something we cannot hold to.
+            The final price depends on your workflow. Honest anchors from a studio with
+            no delivery history yet.
           </p>
           <a
             href={whatsappHref(
@@ -241,9 +239,8 @@ export function DigitalFoundation() {
 
         <Reveal kind="rise" className="mt-8">
           <p className="annot max-w-2xl leading-relaxed">
-            This is simpler work and it is priced that way. Once you are online and
-            enquiries are actually arriving, the systems above become worth talking about.
-            Not before.
+            Simpler work, priced that way. Once enquiries are arriving, the systems
+            above become worth talking about.
           </p>
         </Reveal>
       </div>
@@ -267,8 +264,7 @@ export function PricingTeaser() {
               You should not have to book a call to find out.
             </h2>
             <p className="mt-4 text-paper-dim">
-              Real anchors, published. The final number depends on your workflow, and we
-              quote it properly after mapping.
+              Real anchors, published. We quote properly after mapping.
             </p>
             <Link
               href="/pricing"
@@ -294,8 +290,7 @@ export function PricingTeaser() {
 
         <div className="border-t border-line px-7 py-5 md:px-9">
           <p className="annot leading-relaxed">
-            Not ready for a system yet? There is a Digital Foundation tier from ₹3,000 for
-            getting a business online in the first place.{" "}
+            Not ready yet? Digital Foundation starts at ₹3,000.{" "}
             <Link href="/pricing" className="text-blue underline underline-offset-4">
               See pricing
             </Link>

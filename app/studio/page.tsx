@@ -18,7 +18,7 @@ export default function StudioPage() {
       <PageHeader
         eyebrow="the studio"
         lines={["We chose to", "build together."]}
-        lede="Aakaar means form. Shape. The moment something formless is given structure. It is a fair description of the job, and it is the reason the studio exists in the shape it does."
+        lede="Aakaar means form. Shape. The moment something formless is given structure. A fair description of the job."
       />
 
       <section className="section-tight">

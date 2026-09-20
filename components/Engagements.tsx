@@ -2,6 +2,7 @@
 
 import { engagements, sectors } from "@/lib/content";
 import { Reveal, SectionMark } from "./ui";
+import { Glyph } from "./Glyph";
 
 /**
  * How an engagement is shaped. No prices here on purpose — we quote after
@@ -17,8 +18,7 @@ export function Engagements() {
         <h2 className="font-display t-section text-paper">Three stages, in order.</h2>
         <Reveal kind="rise" className="lede max-w-lg">
           <p>
-            You are never committing to the whole thing up front. Mapping stands on its
-            own, and you get the map either way.
+            Mapping stands on its own. You get the map either way.
           </p>
         </Reveal>
       </div>
@@ -51,9 +51,8 @@ export function Engagements() {
 
       <Reveal kind="rise" className="mt-10">
         <p className="annot max-w-2xl leading-relaxed">
-          We quote a fixed price for the build after mapping, so you are never agreeing
-          to an open-ended number. If we do not think a system is worth building for
-          you, we say so at mapping rather than three weeks in.
+          Fixed price after mapping. If a system is not worth building for you, we say
+          so then, not three weeks in.
         </p>
       </Reveal>
     </div>
@@ -72,9 +71,7 @@ export function Sectors() {
         </h2>
         <Reveal kind="rise" className="lede max-w-lg">
           <p>
-            The pattern is the same everywhere: enquiries arrive at hours nobody is
-            working, and the person who replies first gets the job. These are the places
-            it bites hardest.
+            Enquiries arrive when nobody is working. First to reply gets the job.
           </p>
         </Reveal>
       </div>
@@ -83,8 +80,11 @@ export function Sectors() {
         {sectors.map((s, i) => (
           <Reveal key={s.name} kind="rise" delay={i * 0.05} as="li">
             <div className="border-t border-line pt-5">
-              <p className="font-display text-xl leading-tight text-paper">{s.name}</p>
-              <p className="mt-2 text-sm leading-relaxed text-paper-dim">{s.line}</p>
+              <span className="text-blue">
+                <Glyph name={s.glyph} />
+              </span>
+              <p className="mt-3 font-display text-xl leading-tight text-paper">{s.name}</p>
+              <p className="mt-1.5 text-sm leading-relaxed text-paper-dim">{s.line}</p>
             </div>
           </Reveal>
         ))}
@@ -92,8 +92,8 @@ export function Sectors() {
 
       <Reveal kind="rise" className="mt-12">
         <p className="annot max-w-2xl leading-relaxed">
-          Not on this list? The systems are not industry-specific — if enquiries reach
-          you and something has to happen next, it is the same problem.
+          Not on this list? If enquiries reach you and something has to happen next,
+          it is the same problem.
         </p>
       </Reveal>
     </div>

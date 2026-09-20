@@ -34,7 +34,7 @@ const FIELDS: Field[] = [
   {
     id: "enquiries",
     label: "Enquiries a week",
-    hint: "Across WhatsApp, calls, forms and DMs.",
+    hint: "WhatsApp, calls, forms, DMs.",
     min: 5,
     max: 200,
     step: 5,
@@ -42,7 +42,7 @@ const FIELDS: Field[] = [
   {
     id: "value",
     label: "What one customer is worth",
-    hint: "Roughly, on an average job.",
+    hint: "On an average job.",
     min: 1000,
     max: 200000,
     step: 1000,
@@ -50,7 +50,7 @@ const FIELDS: Field[] = [
   },
   {
     id: "closeRate",
-    label: "Of the ones you reach, how many buy",
+    label: "How many of those buy",
     hint: "Your rough close rate.",
     min: 5,
     max: 80,
@@ -86,8 +86,7 @@ export function LeakCalculator() {
             What is the gap costing you?
           </h3>
           <p className="mt-3 text-sm leading-relaxed text-paper-dim">
-            Move these to match your business. Nothing is sent anywhere, and every
-            step of the arithmetic is shown so you can argue with it.
+            Move these to match your business. Nothing is sent anywhere.
           </p>
 
           <div className="mt-8 space-y-7">
@@ -139,7 +138,7 @@ export function LeakCalculator() {
                 className="mt-3 w-full accent-[var(--c-ochre)]"
               />
               <p className="annot mt-1.5">
-                Nights, lunch hours, Sundays. Most Indian SMBs we talk to guess 30–50%.
+                Nights, lunch hours, Sundays.
               </p>
             </div>
           </div>
@@ -152,18 +151,18 @@ export function LeakCalculator() {
           <ol className="mt-5 space-y-4">
             {[
               {
-                label: "Enquiries arriving after hours",
+                label: "Arrive after hours",
                 calc: `${v.enquiries} × ${afterHours}%`,
                 out: `${missed.toFixed(0)} a week`,
               },
               {
-                label: "Kept warm by an instant reply",
+                label: "Kept warm by a fast reply",
                 calc: `${missed.toFixed(0)} × ${RECOVERY * 100}%`,
                 out: `${recovered.toFixed(0)} a week`,
-                note: "The rest would have reached you anyway, or were never going to buy.",
+                note: "The rest would have reached you anyway.",
               },
               {
-                label: "Of those, the ones who buy",
+                label: "Of those, who buy",
                 calc: `${recovered.toFixed(0)} × ${v.closeRate}%`,
                 out: `${wonPerWeek.toFixed(1)} a week`,
               },
@@ -197,16 +196,13 @@ export function LeakCalculator() {
             </motion.p>
             <p className="mt-3 text-sm leading-relaxed text-paper-dim">
               {wonPerWeek.toFixed(1)} extra customers a week at {inr(v.value)} each.
-              That is the number a lead system has to beat to be worth building.
             </p>
           </div>
 
           <div className="mt-7 border-t border-line pt-6">
             <p className="annot leading-relaxed">
-              This is a model, not a promise. It uses your estimates and one
-              assumption of ours — that an instant reply keeps about {RECOVERY * 100}% of
-              after-hours enquiries warm. We have no client results to quote yet, so
-              we are not going to show you any.
+              A model, not a promise. Your estimates, plus one of ours: an instant reply
+              keeps about {RECOVERY * 100}% of after-hours enquiries warm.
             </p>
             <a
               href={whatsappHref(
@@ -218,7 +214,7 @@ export function LeakCalculator() {
             >
               <WhatsAppMark />
               <span className="border-b border-jade/40 pb-0.5">
-                Tell us if that number looks wrong
+                Tell us if that looks wrong
               </span>
             </a>
           </div>

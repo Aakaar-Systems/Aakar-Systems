@@ -24,10 +24,8 @@ export function ProofBody() {
               </h2>
             </div>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-paper-dim">
-              Built by us to demonstrate the system. This is not a commissioned client
-              project, and Chhaya Interiors is a fictional business. The conversation below
-              follows a scripted flow rather than a live model, so what you see is the
-              shape of the system, not a language model responding.
+              Built by us, not commissioned. Chhaya Interiors is fictional and the flow
+              is scripted, so this is the shape of the system, not a live model.
             </p>
           </div>
 
@@ -53,11 +51,8 @@ export function ProofBody() {
 
             <div>
               <p className="text-paper-dim">
-                A WhatsApp-first booking flow for a two-chair clinic. It reads the
-                clinic&rsquo;s live calendar, offers only slots that actually exist, holds a
-                slot for ten minutes while the patient decides, confirms, and sends a
-                reminder the evening before. Reschedules happen in the same thread, so
-                nobody has to call the front desk during consultation hours.
+                A WhatsApp-first booking flow for a two-chair clinic. Real availability
+                only, and reschedules happen in the same thread.
               </p>
               <ul className="mt-6 space-y-2.5">
                 {[
@@ -82,11 +77,9 @@ export function ProofBody() {
         <div className="panel p-7 md:p-10">
           <p className="annot">a note on proof</p>
           <p className="mt-3 max-w-3xl text-paper">
-            We are a new studio and we do not have paying clients yet. You will not find
-            client logos, case study numbers or testimonials anywhere on this site, because
-            we are not willing to invent them. What we can show you is working systems we
-            built ourselves, and exactly how we think. When real client work exists, it
-            will appear here with their name on it.
+            No paying clients yet, so no logos, no case study numbers and no
+            testimonials anywhere on this site. When real client work exists it will
+            appear here with their name on it.
           </p>
         </div>
       </Reveal>

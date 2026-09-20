@@ -71,22 +71,22 @@ const ACTS = [
   {
     time: "08:00",
     title: "Work piles up",
-    note: "Enquiries, questions, bookings, invoices. All of it arrives at once, and none of it is assigned to anyone.",
+    note: "Enquiries, questions, bookings, invoices. All at once, none of it assigned.",
   },
   {
     time: "09:00",
     title: "Six agents, six areas",
-    note: "Each agent pulls in the work for its own area and starts clearing it — in parallel, not in a queue.",
+    note: "Each pulls in its own area and clears it. In parallel, not in a queue.",
   },
   {
     time: "13:00",
     title: "They hand work to each other",
-    note: "A lead becomes a booking becomes an invoice, with nobody carrying it across. This is the part one chatbot cannot do.",
+    note: "A lead becomes a booking becomes an invoice, with nobody carrying it across.",
   },
   {
     time: "18:00",
     title: "The day closes clear",
-    note: "Illustrative, not a client result — the shape of the outcome, with your own numbers still to be filled in.",
+    note: "Illustrative, not a client result. Your own numbers still to be filled in.",
   },
 ];
 

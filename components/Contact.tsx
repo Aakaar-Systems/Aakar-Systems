@@ -31,8 +31,7 @@ export function ContactBody() {
                     Message us on WhatsApp
                   </p>
                   <p className="mt-2 text-paper-dim">
-                    The fastest way to reach us, and the channel most of our work runs on
-                    anyway. Usually answered within the hour, IST.
+                    The channel most of our work runs on. Usually answered within the hour.
                   </p>
                   <p className="annot mt-3 text-jade">opens a chat, nothing to fill in</p>
                 </div>
@@ -58,8 +57,8 @@ export function ContactBody() {
               <ol className="mt-4 space-y-3">
                 {[
                   "We read it ourselves, usually the same day.",
-                  "A short call or chat, to understand where the time and enquiries are going.",
-                  "A plain-language note back: what we would build, roughly what it costs, and whether it is worth doing at all.",
+                  "A short call, to see where the time and enquiries go.",
+                  "A plain note back: what we would build, and what it costs.",
                 ].map((step, i) => (
                   <li key={step} className="flex gap-3 text-sm text-paper-dim">
                     <span className="annot tnum shrink-0 text-blue">

@@ -18,17 +18,17 @@ const CONTRASTS = [
   {
     imported: "Book a demo, we will get back to you",
     here: "Answer the price question immediately, then book",
-    note: "Price is the first question here, not the last. Dodging it loses the lead.",
+    note: "Price is the first question here, not the last.",
   },
   {
     imported: "Self-serve signup, no human in the loop",
     here: "Automated until it matters, then a named person",
-    note: "Trust is built by a person. The system exists to get them to the right ten conversations.",
+    note: "The system exists to get a person to the right ten conversations.",
   },
   {
     imported: "Desktop-first dashboard for the owner",
     here: "The owner runs it from their phone, between other work",
-    note: "If it needs a laptop and a login, it will not get used on a Tuesday afternoon.",
+    note: "A laptop and a login will not get used on a Tuesday.",
   },
 ];
 
@@ -73,10 +73,8 @@ export function IndiaBody() {
               The fastest AI adoption in India right now is not in the metros.
             </p>
             <p className="mt-4 text-paper-dim">
-              It is in the cities where a business owner is running operations, sales and
-              staffing at the same time, and where an hour saved is genuinely an hour back.
-              That is who we build for. If you are in Pune or Bengaluru we will gladly work
-              with you too, but the studio was not designed around a metro-startup crowd.
+              It is where an owner runs operations, sales and staffing at once, and an
+              hour saved is genuinely an hour back. That is who we build for.
             </p>
           </div>
         </div>
@@ -111,10 +109,7 @@ export function IndiaTeaser() {
           </div>
           <div>
             <p className="lede">
-              India is the largest WhatsApp market on earth, and 97% of small businesses
-              here already run on it. Most automation advice assumes email, a long
-              consideration cycle and a buyer at a desk. None of that holds for a clinic in
-              Nashik or a studio in Indore, so we do not build as though it does.
+              Automation advice assumes email and a buyer at a desk. Not here.
             </p>
             <div className="mt-10 grid gap-8 sm:grid-cols-3">
               {[indiaStats[0], indiaStats[2], indiaStats[3]].map((s) => (

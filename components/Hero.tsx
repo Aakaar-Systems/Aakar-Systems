@@ -56,9 +56,8 @@ export function Hero() {
               transition={{ duration: 0.7, delay: reduced ? 0 : 0.65 }}
               className="lede mt-8 max-w-xl"
             >
-              Aakaar Systems is an AI business systems studio in India. We find where your
-              business is losing enquiries, burning hours on repeat work, or answering too
-              slowly, and we build the system that fixes it.
+              An AI business systems studio in India. We find where enquiries leak, and
+              build the system that stops it.
             </motion.p>
 
             <motion.div

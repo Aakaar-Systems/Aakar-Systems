@@ -10,7 +10,7 @@ import { MaskLines, Reveal, WhatsAppMark } from "./ui";
  */
 export function CtaBand({
   title = "Tell us what is slowing you down.",
-  note = "Describe the problem in plain words. We will tell you honestly whether a system is the right answer for it.",
+  note = "Describe it in plain words. We will say honestly whether a system is the answer.",
 }: {
   title?: string;
   note?: string;

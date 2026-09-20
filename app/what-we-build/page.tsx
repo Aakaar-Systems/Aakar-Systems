@@ -3,6 +3,7 @@ import { PageHeader } from "@/components/PageHeader";
 import { SystemsList } from "@/components/Systems";
 import { CtaBand } from "@/components/CtaBand";
 import { Reveal } from "@/components/ui";
+import { Glyph } from "@/components/Glyph";
 import { Sectors } from "@/components/Engagements";
 import { ConnectedLayers, PricingTeaser, Retainer } from "@/components/Offer";
 
@@ -24,7 +25,7 @@ export default function WhatWeBuildPage() {
       <PageHeader
         eyebrow="what we build"
         lines={["Five systems.", "Each one does", "a specific job."]}
-        lede="We do not sell hours or a bundle of services. Each of these is a defined system with a defined outcome, built onto the tools you already use. Open any one to see how it is wired."
+        lede="Not hours, not a bundle of services. Each one is a defined system with a defined outcome. Open any to see how it is wired."
       />
 
       <section className="section-tight">
@@ -52,43 +53,39 @@ export default function WhatWeBuildPage() {
         <Sectors />
       </section>
 
-      {/* Plain-language explainer, for anyone who does not work in software. */}
+      {/* Three promises, as pictures with one line each. */}
       <section className="pb-24 md:pb-36">
         <div className="shell">
           <Reveal kind="wipe">
-            <div className="panel p-7 md:p-10">
-              <p className="annot">in plain words</p>
-              <div className="mt-5 grid gap-8 md:grid-cols-3 md:gap-12">
-                <div>
-                  <p className="font-display text-xl text-paper">
-                    You do not need to understand the technology.
+            <ul className="panel grid gap-10 p-7 md:grid-cols-3 md:gap-12 md:p-10">
+              {[
+                {
+                  glyph: "sunrise",
+                  title: "You do not need to understand it",
+                  line: "You need to know what changes on a Monday morning.",
+                },
+                {
+                  glyph: "plug",
+                  title: "Nothing you use gets thrown away",
+                  line: "Your WhatsApp number, your calendar, your CRM.",
+                },
+                {
+                  glyph: "handover",
+                  title: "A person is always reachable",
+                  line: "The system steps aside the moment it should.",
+                },
+              ].map((item) => (
+                <li key={item.title}>
+                  <span className="text-blue">
+                    <Glyph name={item.glyph} className="h-7 w-7" />
+                  </span>
+                  <p className="mt-4 font-display text-xl leading-tight text-paper">
+                    {item.title}
                   </p>
-                  <p className="mt-3 text-sm leading-relaxed text-paper-dim">
-                    That is our job. You need to know what changes on a Monday morning:
-                    fewer missed enquiries, fewer repeated answers, less chasing.
-                  </p>
-                </div>
-                <div>
-                  <p className="font-display text-xl text-paper">
-                    Nothing you use gets thrown away.
-                  </p>
-                  <p className="mt-3 text-sm leading-relaxed text-paper-dim">
-                    We build onto your existing WhatsApp number, your calendar, your
-                    spreadsheet or CRM. There is no new platform to learn or rent.
-                  </p>
-                </div>
-                <div>
-                  <p className="font-display text-xl text-paper">
-                    A person is always reachable.
-                  </p>
-                  <p className="mt-3 text-sm leading-relaxed text-paper-dim">
-                    The system handles the repetitive part and steps aside the moment a
-                    real conversation is needed. Customers are never trapped talking to
-                    software.
-                  </p>
-                </div>
-              </div>
-            </div>
+                  <p className="mt-2 text-sm leading-relaxed text-paper-dim">{item.line}</p>
+                </li>
+              ))}
+            </ul>
           </Reveal>
         </div>
       </section>
